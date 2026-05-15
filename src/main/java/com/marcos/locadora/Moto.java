@@ -1,6 +1,6 @@
 package com.marcos.locadora;
 
-public class Moto extends Veiculo{
+public class Moto extends Veiculo implements Locavel {
 
     private int cilindrada;
 
@@ -8,6 +8,27 @@ public class Moto extends Veiculo{
 
         super(modelo, marca, placa, ano, valordiaria);
         this.cilindrada = cilindrada;
+    }
+
+    @Override
+    public double calculoDiaria(int dias){
+        return getValordiaria() * dias;
+    }
+
+    @Override
+    public void alugar(){
+        if(isDisponivel()){
+            setDisponivel(false);
+            System.out.println("Moto alugada!");
+        } else {
+            System.out.println("Moto indisponivel!");
+        }
+    }
+
+    @Override
+    public void devolver(){
+        setDisponivel(true);
+        System.out.println("Moto devolvida com sucesso! Tenha um ótimo dia");
     }
 
     @Override

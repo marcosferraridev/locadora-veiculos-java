@@ -7,6 +7,7 @@ public abstract class Veiculo {
     private String placa;
     private int ano;
     private double valordiaria;
+    private boolean disponivel = true;
 
     public Veiculo(String modelo, String marca, String placa, int ano, double valordiaria){
         this.modelo = modelo;
@@ -14,6 +15,22 @@ public abstract class Veiculo {
         this.placa = placa;
         this.ano = ano;
         this.valordiaria = valordiaria;
+    }
+
+    public boolean isDisponivel(){
+        return disponivel;
+    }
+
+    protected void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public void exibirDisponibilidade() {
+        if (isDisponivel()) {
+            System.out.println("Veículo disponível!");
+        } else {
+            System.out.println("Veículo alugado!");
+        }
     }
 
     // getters e setters

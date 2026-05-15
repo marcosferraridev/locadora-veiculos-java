@@ -1,6 +1,6 @@
 package com.marcos.locadora;
 
-public class Caminhao extends Veiculo{
+public class Caminhao extends Veiculo implements Locavel {
 
     private String tipoCarga;
 
@@ -8,6 +8,26 @@ public class Caminhao extends Veiculo{
 
         super(modelo, marca, placa, ano, valordiaria);
         this.tipoCarga = tipoCarga;
+    }
+
+    @Override
+    public double calculoDiaria(int dias){
+        return getValordiaria() * dias;
+    }
+
+    @Override
+    public void alugar(){
+        if(isDisponivel()){
+            setDisponivel(false);
+            System.out.println("Caminhão alugado!");
+        } else {
+            System.out.println("Caminhão indisponivel!");
+        }
+    }
+
+    public void devolver(){
+        setDisponivel(true);
+        System.out.println("Caminhão devolvido com sucesso! Tenha um ótimo dia!");
     }
 
     @Override
