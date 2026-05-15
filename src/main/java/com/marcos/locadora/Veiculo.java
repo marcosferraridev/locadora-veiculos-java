@@ -34,7 +34,14 @@ public abstract class Veiculo {
         return marca;
     }
 
+    public double getValordiaria(){
+        return valordiaria;
+    }
+
     public void setValordiaria(double valordiaria) {
         this.valordiaria = valordiaria;
     }
+
+    //metodo para exibir as informaçoes
+    public abstract void exibir();
 }
